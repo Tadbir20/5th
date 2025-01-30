@@ -1,0 +1,18 @@
+import java.util.Scanner;
+class Triangle {
+    float base,height;
+    void area() {
+        System.out.println(0.5*base*height);
+    }
+}
+class Main {
+    public static void main(String[] args) {
+        Scanner scanf = new Scanner(System.in);
+        Triangle tri1 = new Triangle();
+        tri1.base = scanf.nextFloat();
+        tri1.height = scanf.nextFloat();
+
+        tri1.area();
+
+    }
+}
