@@ -1,0 +1,19 @@
+class Box{
+    double width;
+    double height;
+    double depth;
+}
+
+class Main {
+    public static void main(String[] args) {
+
+        Box box1 = new Box();
+        Box box2 = new Box();
+
+        box1.width = 5;
+        box1.height = 5;
+        box1.depth = 5;
+        double vol = box1.width * box1.height * box1.depth;
+        System.out.println(vol);
+    }
+}
