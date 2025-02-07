@@ -1,0 +1,39 @@
+class Box {
+    double widht;
+    double height;
+    double depth;
+
+    Box(double w, double h, double d) {
+        widht =10;
+        height = 20;
+        depth =1;
+    }
+
+    Box (double s){
+        widht = s;
+        height = s;
+        depth = s;
+    }
+    Box (){
+        widht =-1;
+        height =-1;
+        depth =-1;
+    }
+    double volume (){
+        return (widht*height*depth);
+    }
+    void println(){System.out.println(widht*height*depth);}
+}
+public class Main {
+    public static void main(String[] args) {
+
+        Box box1 = new Box(10,20,1);
+        Box box2 =new Box(2);
+        Box box3 =new Box();
+
+        System.out.println(box1.volume());
+        System.out.println(box2.volume());
+        System.out.println(box3.volume());
+
+    }
+}
