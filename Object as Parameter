@@ -1,0 +1,38 @@
+
+class Vehicle {
+    int speed;
+    int no_of_passengers;
+
+    public Vehicle(int speed, int no_of_passengers) {
+        this.speed = speed;
+        this.no_of_passengers = no_of_passengers;
+    }
+    public void displayInfo() {
+        System.out.println("Speed: " + speed);
+        System.out.println("Passengers: " + no_of_passengers);
+    }
+}
+
+class Car extends Vehicle {
+    public Car(int speed, int no_of_passengers) {
+        super(speed, no_of_passengers);
+    }
+}
+
+class Bus extends Vehicle {
+    public Bus(int speed, int no_of_passengers) {
+        super(speed, no_of_passengers);
+    }
+}
+
+public class task1 {
+    public static void main(String[] args) {
+        Car car = new Car(120, 4);
+        Bus bus = new Bus(120, 40);
+
+        System.out.println("Car Information:");
+        car.displayInfo();
+        System.out.println("\nBus Information:");
+        bus.displayInfo();
+    }
+}
