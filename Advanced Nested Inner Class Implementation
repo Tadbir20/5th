@@ -1,0 +1,102 @@
+
+import java.util.ArrayList;
+
+class BankAccount {
+    String accountHolder;
+    private double balance;
+    private TransactionHistory transactionHistory;
+
+    public BankAccount(String accountHolder, double Balance) {
+        this.accountHolder = accountHolder;
+        balance = Balance;
+        transactionHistory = new TransactionHistory();
+    }
+
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            transactionHistory.addTransaction("Deposited: " + amount);
+        } else {
+            System.out.println("Invalid deposit amount.");
+        }
+    }
+
+    public void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+            transactionHistory.addTransaction("Withdrew: " + amount);
+        } else {
+            System.out.println("Insufficient funds or invalid amount.");
+        }
+    }
+
+    public void showBalance() {
+        System.out.println("Current Balance: " + balance);
+    }
+
+    public TransactionHistory getTransactionHistory() {
+        return transactionHistory;
+    }
+
+
+    class TransactionHistory {
+        private ArrayList<String> transactions;
+
+        public TransactionHistory() {
+            transactions = new ArrayList<>();
+        }
+
+        public void addTransaction(String record) {
+            transactions.add(record);
+        }
+
+        public void showTransactions() {
+            System.out.println("Transaction History:");
+            for (String transaction : transactions) {
+                System.out.println(transaction);
+            }
+        }
+
+        // Nested Inner Class
+        class TransactionAnalyzer {
+            public int countDeposits() {
+                int count = 0;
+                for (String transaction : transactions) {
+                    if (transaction.startsWith("Deposited")) {
+                        count++;
+                    }
+                }
+                return count;
+            }
+
+            public int countWithdrawals() {
+                int count = 0;
+                for (String transaction : transactions) {
+                    if (transaction.startsWith("Withdrew")) {
+                        count++;
+                    }
+                }
+                return count;
+            }
+        }
+    }
+}
+
+public class task3 {
+    public static void main(String[] args) {
+        BankAccount account = new BankAccount("John Doe", 5000);
+        account.deposit(500);
+        account.withdraw(200);
+        account.deposit(300);
+        account.withdraw(400);
+        account.deposit(300);
+        account.showBalance();
+
+        BankAccount.TransactionHistory history = account.getTransactionHistory();
+        history.showTransactions();
+
+        BankAccount.TransactionHistory.TransactionAnalyzer analyzer = history.new TransactionAnalyzer();
+        System.out.println("Number of Deposits: " + analyzer.countDeposits());
+        System.out.println("Number of Withdrawals: " + analyzer.countWithdrawals());
+    }
+}
