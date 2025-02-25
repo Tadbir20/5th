@@ -1,0 +1,32 @@
+        class A {
+            int i,j;
+            void showij (){
+                System.out.println("i and j:" + i +" " + j);
+            }
+        }
+    class B extends A{
+        int k;
+        void showk(){
+            System.out.println("k: " + k);
+        }
+        void sum(){
+            System.out.println("i+j+k: " + (i+j+k));
+        }
+
+    }
+        class inheritance {
+            public static void main(String args[]) {
+                A sup = new A();
+                B sub = new B();
+                sup.i = 10;
+                sup.j = 20;
+                sup.showij();
+                System.out.println();
+
+                sub.i=10;
+                sub.j=20;
+                sub.k = 30;
+                sub.showk();
+                sub.sum();
+            }
+        }
