@@ -1,0 +1,63 @@
+interface Playable{
+    void play();
+}
+
+
+interface Multiplayer{
+    int maxPlayers();
+}
+
+
+interface Game{
+    String getGenre();
+}
+
+
+class VideoGame implements Playable, Game{
+    private String genre;
+    
+    VideoGame(String genre){
+        this.genre = genre;
+    }
+    
+    public void play(){
+        System.out.println("Starting the video game...");
+    }
+    
+    public String getGenre() {
+        return genre;
+    }
+}
+
+
+class BoardGame implements Multiplayer, Game {
+    private int maxPlayers;
+    private String genre;
+    
+    BoardGame(int maxPlayers, String genre) {
+        this.maxPlayers = maxPlayers;
+        this.genre = genre;
+    }
+    
+    public int maxPlayers() {
+        return maxPlayers;
+    }
+    
+    public String getGenre() {
+        return genre;
+    }
+}
+
+
+public class Main {
+    public static void main(String[] args) {
+        VideoGame videoGame = new VideoGame("Action");
+        BoardGame boardGame = new BoardGame(4, "Strategy");
+        
+        videoGame.play();
+        System.out.println("Video Game Genre: " + videoGame.getGenre());
+        
+        System.out.println("Board Game Genre: " + boardGame.getGenre());
+        System.out.println("Maximum Players: " + boardGame.maxPlayers());
+    }
+}
