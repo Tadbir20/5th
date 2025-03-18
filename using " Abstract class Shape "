@@ -1,0 +1,46 @@
+abstract class Shape{
+   abstract double calculateArea();
+}
+
+final class Rectangle extends Shape {
+   int length;
+   int width;
+
+   Rectangle(int l, int w) {
+       length = l;
+       width = w;
+   }
+
+   double calculateArea(){
+      return length*width;
+   }
+}
+
+
+final class Circle extends Shape {
+   int radius;
+
+   Circle(int r) {
+       radius=r;
+   }
+
+   double calculateArea(){
+       return 3.1416*radius*radius;
+   }
+}
+
+
+public class Main {
+   public static void main(String[] args) {
+
+      
+       Rectangle r=new Rectangle(5,5);
+       System.out.println(r.calculateArea());
+
+
+       Circle c=new Circle(5);
+       System.out.println(c.calculateArea());
+
+
+   }
+}
