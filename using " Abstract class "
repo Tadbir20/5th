@@ -1,0 +1,48 @@
+abstract class Vehicle{
+   String vehicleNumber;
+   String fuelType;
+    abstract int calculateFare(int distance);
+   void showDetails(){
+       System.out.println(vehicleNumber);
+       System.out.println(fuelType);
+   }
+}
+
+class Car extends Vehicle{
+
+   int calculateFare(int distance){
+       return distance*10;
+   }
+
+   Car(String vn,String fn){
+       vehicleNumber=vn;
+       fuelType=fn;
+   }
+}
+
+class Bike extends Vehicle{
+
+    int calculateFare(int distance){
+        return distance*5;
+    }
+
+    Bike(String vn,String fn){
+        vehicleNumber=vn;
+        fuelType=fn;
+    }
+}
+
+public class Main {
+   public static void main(String[] args) {
+
+
+       Car c=new Car("54135","Petrol");
+       c.showDetails();
+       System.out.println(c.calculateFare(100));
+
+
+       Bike b=new Bike("6384148","Octane");
+       b.showDetails();
+       System.out.println(b.calculateFare(100));
+   }
+}
