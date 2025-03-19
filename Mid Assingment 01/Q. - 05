@@ -1,0 +1,72 @@
+
+abstract class Store {
+
+    public void showItem() {
+        System.out.println("Displaying item details...");
+    }
+
+
+    abstract double get_price();
+    abstract void display_info();
+}
+
+class Bookstore extends Store {
+    String bookName;
+    double price;
+
+    public Bookstore(String bookName, double price) {
+        bookName = bookName;
+        price = price;
+    }
+
+    double get_price() {
+        return price;
+    }
+
+    void display_info() {
+        System.out.println("Bookstore Item: " + bookName);
+        System.out.println("Price: $" + price);
+    }
+}
+
+
+class Ricestore extends Store {
+     String riceType;
+     double price;
+
+    public Ricestore(String riceType, double price) {
+        this.riceType = riceType;
+        this.price = price;
+    }
+
+
+    double get_price() {
+        return price;
+    }
+
+
+    void display_info() {
+        System.out.println("Ricestore Item: " + riceType);
+        System.out.println("Price: $" + price + " per kg");
+    }
+}
+
+// Main class
+ class Main {
+    public static void main(String[] args) {
+
+        Store Bstore = new Bookstore("Java Programming", 29.99);
+        Store myRicestore = new Ricestore("Basmati Rice", 5.49);
+
+
+        Bstore.showItem();
+        Bstore.display_info();
+        System.out.println("Bookstore Price: $" + Bstore.get_price());
+
+        System.out.println("----------------------");
+
+        myRicestore.showItem();
+        myRicestore.display_info();
+        System.out.println("Ricestore Price: $" + myRicestore.get_price());
+    }
+}
