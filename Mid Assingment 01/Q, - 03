@@ -1,0 +1,45 @@
+class Vehicle {
+     int speed;
+     int passengers;
+
+    public Vehicle(int speed, int passengers) {
+        speed = speed;
+        passengers = passengers;
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
+}
+
+class Car extends Vehicle {
+    public Car(int speed, int passengers) {
+        super(speed, passengers);
+    }
+}
+
+class Bus extends Vehicle {
+    public Bus(int speed, int passengers) {
+        super(speed, passengers);
+    }
+}
+
+ class Main {
+    public static void main(String[] args) {
+        Car myCar = new Car( 20,120);
+        Bus myBus = new Bus(80,40);
+
+
+        System.out.println("Car Speed: " + myCar.getSpeed() + " km/h");
+        System.out.println("Bus Speed: " + myBus.getSpeed() + " km/h");
+
+        // Comparing the speeds
+        if (myCar.getSpeed() > myBus.getSpeed()) {
+            System.out.println("The Car is faster than the Bus.");
+        } else if (myCar.getSpeed() < myBus.getSpeed()) {
+            System.out.println("The Bus is faster than the Car.");
+        } else {
+            System.out.println("Both vehicles have the same speed.");
+        }
+    }
+}
