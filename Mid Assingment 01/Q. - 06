@@ -1,0 +1,47 @@
+
+abstract class Shape {
+     double width;
+     double height;
+
+    public void setData(double width, double height) {
+        this.width = width;
+        this.height = height;
+    }
+
+    abstract void display_area();
+}
+
+class Triangle extends Shape {
+
+    void display_area() {
+        double area = 0.5 * width * height;
+        System.out.println("Triangle Area: " + area);
+    }
+}
+
+class Rectangle extends Shape {
+
+    void display_area() {
+        double area = width * height;
+        System.out.println("Rectangle Area: " + area);
+    }
+}
+
+
+ class main {
+    public static void main(String[] args) {
+        Shape shape;
+
+
+        shape = new Triangle();
+        shape.setData(10, 5);
+        shape.display_area();
+
+        System.out.println("----------------------");
+
+
+        shape = new Rectangle();
+        shape.setData(10, 5);
+        shape.display_area();
+    }
+}
