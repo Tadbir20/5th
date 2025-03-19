@@ -1,0 +1,43 @@
+class Grandfather {
+    String name;
+    int age;
+
+    Grandfather(String name, int age) {
+        this.name = name;
+        this.age = age;
+        System.out.println("Grandfather's Name: " + this.name + ", Age: " + this.age);
+    }
+}
+
+class Father extends Grandfather {
+    String name;
+    int age;
+
+    Father(String name, int age) {
+        super("MD.Afser Khan", age + 30);
+        this.name = name;
+        this.age = age;
+        System.out.println("Father's Name: " + this.name + ", Age: " + this.age);
+    }
+}
+
+class Son extends Father {
+    String name;
+    int age;
+
+    // Constructor of Son
+    Son(String name, int age) {
+        super( "MD.Manik Khan", age + 30); // Calling Father's constructor using 'super'
+        this.name = name;
+        this.age = age;
+        System.out.println("Son's Name: " + this.name + ", Age: " + this.age);
+    }
+}
+
+// Main class
+class Family {
+    public static void main(String[] args) {
+        System.out.println("Family: ");
+        Son mySon = new Son("Tadbir Tareq Jitu", 20); // Creating a Son object}
+    }
+}
