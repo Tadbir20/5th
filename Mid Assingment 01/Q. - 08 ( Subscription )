@@ -1,0 +1,49 @@
+class Subscription {
+     double baseFee;
+
+     Subscription(double baseFee) {
+        this.baseFee = baseFee;
+    }
+
+     double calculateFee() {
+        return baseFee;
+    }
+}
+
+class PremiumSubscription extends Subscription {
+    double premiumFee;
+
+     PremiumSubscription(double baseFee, double premiumFee) {
+        super(baseFee);
+        this.premiumFee = premiumFee;
+    }
+
+     double calculateFee() {
+        return super.calculateFee() + premiumFee;
+    }
+}
+
+class VIPSubscription extends PremiumSubscription {
+     double vipFee;
+
+     VIPSubscription(double baseFee, double premiumFee, double vipFee) {
+        super(baseFee, premiumFee);
+        this.vipFee = vipFee;
+    }
+
+    double calculateFee() {
+        return super.calculateFee() + vipFee;
+    }
+}
+
+ class SubscriptionTest {
+    public static void main(String[] args) {
+        Subscription basic = new Subscription(10.0);
+        PremiumSubscription premium = new PremiumSubscription(10.0, 5.0);
+        VIPSubscription vip = new VIPSubscription(10.0, 5.0, 2.5);
+
+        System.out.println("Basic Fee: $" + basic.calculateFee());
+        System.out.println("Premium Fee: $" + premium.calculateFee());
+        System.out.println("VIP Fee: $" + vip.calculateFee());
+    }
+}
