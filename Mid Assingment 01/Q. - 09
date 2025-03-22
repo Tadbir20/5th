@@ -1,0 +1,21 @@
+class Car {
+    static int count = 0;
+
+    public Car() {
+        count++;
+    }
+
+    static int getCount() {
+        return count;
+    }
+}
+
+class CarCounter {
+    public static void main(String[] args) {
+        Car car1 = new Car();
+        Car car2 = new Car();
+        Car car3 = new Car();
+
+        System.out.println("Total cars created: " + Car.getCount());
+    }
+}
