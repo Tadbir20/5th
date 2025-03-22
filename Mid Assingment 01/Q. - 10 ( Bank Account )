@@ -1,0 +1,40 @@
+ class BankUtils {
+      static void display() {
+        System.out.println("Welcome to the bank");
+    }
+}
+
+class BankAccount {
+    String accountNumber;
+
+    public BankAccount(String accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void calculateInterest() {
+        System.out.println("Calculating interest...");
+    }
+}
+
+class Transaction {
+    void processTransaction() {
+        System.out.println("Processing transaction...");
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        BankUtils.display();
+
+        BankAccount account = new BankAccount("123456789");
+        System.out.println("Account Number: " + account.getAccountNumber());
+        account.calculateInterest();
+
+        Transaction transaction = new Transaction();
+        transaction.processTransaction();
+    }
+}
