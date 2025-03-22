@@ -1,0 +1,40 @@
+abstract class Vehicle {
+    abstract void start();
+    abstract void stop();
+}
+
+interface Electric {
+    void chargeBattery();
+}
+
+interface Autonomous {
+    void enableAutoPilot();
+}
+
+class ElectricCar extends Vehicle implements Electric, Autonomous {
+    public void start() {
+        System.out.println("Electric car is starting...");
+    }
+
+    public void stop() {
+        System.out.println("Electric car is stopping...");
+    }
+
+    public void chargeBattery() {
+        System.out.println("Charging the electric car battery...");
+    }
+
+    public void enableAutoPilot() {
+        System.out.println("Autopilot mode enabled...");
+    }
+}
+
+ class Main {
+    public static void main(String[] args) {
+        ElectricCar myCar = new ElectricCar();
+        myCar.start();
+        myCar.chargeBattery();
+        myCar.enableAutoPilot();
+        myCar.stop();
+    }
+}
